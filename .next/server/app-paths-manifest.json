@@ -1,0 +1,15 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/rss-import/route": "app/api/rss-import/route.js",
+  "/jaunumi/page": "app/jaunumi/page.js",
+  "/page": "app/page.js",
+  "/pasakumi/page": "app/pasakumi/page.js",
+  "/admin/events/[id]/page": "app/admin/events/[id]/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/events/page": "app/admin/events/page.js",
+  "/admin/posts/new/page": "app/admin/posts/new/page.js",
+  "/admin/posts/[id]/page": "app/admin/posts/[id]/page.js",
+  "/admin/events/new/page": "app/admin/events/new/page.js",
+  "/admin/login/page": "app/admin/login/page.js",
+  "/admin/posts/page": "app/admin/posts/page.js"
+}
