@@ -14,7 +14,8 @@ interface EventCardProps {
 }
 
 export function EventCard({ event, variant = "default" }: EventCardProps) {
-  const eventDate = new Date(event.date);
+  const [y, mo, d] = event.date.split("-").map(Number);
+  const eventDate = new Date(y, mo - 1, d);
   const day = format(eventDate, "d");
   const month = format(eventDate, "MMM", { locale: lv }).toUpperCase();
   const fullDate = format(eventDate, "EEEE, d. MMMM", { locale: lv });
