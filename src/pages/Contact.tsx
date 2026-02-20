@@ -76,25 +76,36 @@ export default function Contact() {
       <section className="py-12 border-b border-border">
         <div className="container-page">
           <h2 className="text-2xl font-bold mb-6">{t.contact.team}</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {teamMembers.map((member) => {
               const initials = member.name.split(" ").map(n => n[0]).join("").slice(0, 2).toUpperCase();
               return (
-                <Card key={member.id} className="border-border/50">
-                  <CardContent className="p-5">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg mb-3">
-                      {initials}
-                    </div>
-                    <p className="font-semibold">{member.name}</p>
-                    <p className="text-sm text-primary mb-2">{member.role}</p>
-                    <p className="text-xs text-muted-foreground mb-3 leading-relaxed">{member.description}</p>
+                <Card key={member.id} className="border-border/50 overflow-hidden">
+                  {/* Photo */}
+                  <div className="aspect-[3/2] bg-muted overflow-hidden">
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-primary/10">
+                        <span className="text-2xl font-bold text-primary">{initials}</span>
+                      </div>
+                    )}
+                  </div>
+                  <CardContent className="p-4">
+                    <p className="font-semibold text-sm leading-snug">{member.name}</p>
+                    <p className="text-xs text-primary mt-0.5 mb-2 leading-snug">{member.role}</p>
                     <div className="space-y-1">
-                      <a href={`mailto:${member.email}`} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
-                        <Mail className="h-3 w-3" />
-                        {member.email}
+                      <a href={`mailto:${member.email}`} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors truncate">
+                        <Mail className="h-3 w-3 shrink-0" />
+                        <span className="truncate">{member.email}</span>
                       </a>
                       <a href={`tel:${member.phone}`} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
-                        <Phone className="h-3 w-3" />
+                        <Phone className="h-3 w-3 shrink-0" />
                         {member.phone}
                       </a>
                     </div>
