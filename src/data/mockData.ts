@@ -12,6 +12,7 @@ export interface NewsItem {
   author: string;
   authorRole: string;
   readingTime?: number;
+  sourceUrl?: string;
 }
 
 export interface EventItem {
@@ -28,6 +29,7 @@ export interface EventItem {
   status?: "open" | "closed" | "upcoming";
   spotsTotal?: number;
   spotsLeft?: number;
+  sourceUrl?: string;
 }
 
 export interface ResourceItem {
@@ -78,6 +80,7 @@ export const newsItems: NewsItem[] = [
     author: "Līga Baņķiere",
     authorRole: "Galvenā speciāliste vizuālās mākslas jomā",
     readingTime: 2,
+    sourceUrl: "https://www.intereses.lv/rigas-bernu-un-jauniesu-radosas-makslas-konkurss-neparastas-lietas-ainava/",
   },
   {
     id: "2",
@@ -91,6 +94,7 @@ export const newsItems: NewsItem[] = [
     author: "Aivita Grīna",
     authorRole: "Pedagogu profesionālās kompetences pilnveides programmu vadītāja",
     readingTime: 3,
+    sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-programmai-stikla-makslas-daudzveidiba-apstrades-iespejas-tehnikas-un-panemieni-darbu-izveide/",
   },
   {
     id: "3",
@@ -104,6 +108,7 @@ export const newsItems: NewsItem[] = [
     author: "Līga Baņķiere",
     authorRole: "Galvenā speciāliste vizuālās mākslas jomā",
     readingTime: 2,
+    sourceUrl: "https://www.intereses.lv/bernu-un-jauniesu-stikla-makslas-konkurss-izstade-anna-izzina-rigu-durvis-kas-nav-tikai-durvis/",
   },
   {
     id: "4",
@@ -117,6 +122,7 @@ export const newsItems: NewsItem[] = [
     author: "Aivita Grīna",
     authorRole: "Pedagogu profesionālās kompetences pilnveides programmu vadītāja",
     readingTime: 3,
+    sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-pedagogu-profesionalas-kompetences-pilnveides-seminaram-vizualas-identitates-veidosana/",
   },
   {
     id: "5",
@@ -130,6 +136,7 @@ export const newsItems: NewsItem[] = [
     author: "Antra Ņjuša",
     authorRole: "Galvenā speciāliste teātra mākslas jomā",
     readingTime: 2,
+    sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-pedagogu-profesionalas-kompetences-pilnveides-seminaram-dramaturgijas-pamati/",
   },
   {
     id: "6",
@@ -143,6 +150,7 @@ export const newsItems: NewsItem[] = [
     author: "Santa Vancāne",
     authorRole: "RIMC vadītāja",
     readingTime: 2,
+    sourceUrl: "https://www.intereses.lv/stikla-makslinieku-izstade-kas-veltita-krisjana-valdemara-pieminai/",
   },
   {
     id: "7",
@@ -156,6 +164,7 @@ export const newsItems: NewsItem[] = [
     author: "Mārtiņš Liepiņš",
     authorRole: "Pasākumu koordinators",
     readingTime: 2,
+    sourceUrl: "https://www.intereses.lv/24-stundu-spelu-izstrades-hakatons-jeb-game-jam-vidusskoleniem-campfire-riga/",
   },
   {
     id: "8",
@@ -169,6 +178,7 @@ export const newsItems: NewsItem[] = [
     author: "Aivita Grīna",
     authorRole: "Pedagogu profesionālās kompetences pilnveides programmu vadītāja",
     readingTime: 3,
+    sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-profesionalas-kompetences-pilnveides-programmai-izteles-un-kreativitates-rosinosi-panemieni-vizuali-plastiskaja-maksla/",
   },
 ];
 
@@ -183,6 +193,7 @@ export const eventItems: EventItem[] = [
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2025/12/Balsis-2026-1.png",
     registrationUrl: "https://www.intereses.lv/vokalie-ansambli-sak-gatavoties-rigas-vokalas-muzikas-konkursam-balsis-2026/",
+    sourceUrl: "https://www.intereses.lv/vokalie-ansambli-sak-gatavoties-rigas-vokalas-muzikas-konkursam-balsis-2026/",
     status: "open",
   },
   {
@@ -195,6 +206,7 @@ export const eventItems: EventItem[] = [
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2025/12/Balsis-2026-1.png",
     registrationUrl: "https://www.intereses.lv/vokalie-ansambli-sak-gatavoties-rigas-vokalas-muzikas-konkursam-balsis-2026/",
+    sourceUrl: "https://www.intereses.lv/vokalie-ansambli-sak-gatavoties-rigas-vokalas-muzikas-konkursam-balsis-2026/",
     status: "open",
   },
   {
@@ -207,6 +219,7 @@ export const eventItems: EventItem[] = [
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-1.png",
     registrationUrl: "https://www.intereses.lv/ikgadejais-tradicionalas-dziedasanas-konkurss-dziesmu-dziedu-kada-bija/",
+    sourceUrl: "https://www.intereses.lv/ikgadejais-tradicionalas-dziedasanas-konkurss-dziesmu-dziedu-kada-bija/",
     status: "open",
   },
   {
@@ -219,6 +232,7 @@ export const eventItems: EventItem[] = [
     category: "training",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-3-1.png",
     registrationUrl: "https://www.intereses.lv/aicinam-pieteikties-pedagogu-profesionalas-kompetences-pilnveides-seminaram-dramas-terapija/",
+    sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-pedagogu-profesionalas-kompetences-pilnveides-seminaram-dramas-terapija/",
     status: "open",
     spotsTotal: 25,
     spotsLeft: 10,
@@ -233,6 +247,7 @@ export const eventItems: EventItem[] = [
     category: "training",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-725-x-400-pikseli-4-1.png",
     registrationUrl: "https://www.intereses.lv/aicinam-pieteikties-profesionalas-kompetences-pilnveides-programmai-izteles-un-kreativitates-rosinosi-panemieni-vizuali-plastiskaja-maksla/",
+    sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-profesionalas-kompetences-pilnveides-programmai-izteles-un-kreativitates-rosinosi-panemieni-vizuali-plastiskaja-maksla/",
     status: "open",
     spotsTotal: 20,
     spotsLeft: 7,
@@ -248,6 +263,7 @@ export const eventItems: EventItem[] = [
     category: "training",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-3-1.png",
     registrationUrl: "https://www.intereses.lv/aicinam-pieteikties-pedagogu-profesionalas-kompetences-pilnveides-seminaram-dramaturgijas-pamati/",
+    sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-pedagogu-profesionalas-kompetences-pilnveides-seminaram-dramaturgijas-pamati/",
     status: "open",
     spotsTotal: 30,
     spotsLeft: 12,
@@ -263,6 +279,7 @@ export const eventItems: EventItem[] = [
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2026/01/Zvirbulis-2026.jpg",
     registrationUrl: "https://www.intereses.lv/aicinam-gatavoties-dalibai-skatuves-runas-konkursa-rigas-zvirbulis-2026/",
+    sourceUrl: "https://www.intereses.lv/aicinam-gatavoties-dalibai-skatuves-runas-konkursa-rigas-zvirbulis-2026/",
     status: "open",
   },
   {
@@ -276,6 +293,7 @@ export const eventItems: EventItem[] = [
     category: "training",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-7.png",
     registrationUrl: "https://www.intereses.lv/aicinam-pieteikties-programmai-stikla-makslas-daudzveidiba-apstrades-iespejas-tehnikas-un-panemieni-darbu-izveide/",
+    sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-programmai-stikla-makslas-daudzveidiba-apstrades-iespejas-tehnikas-un-panemieni-darbu-izveide/",
     status: "open",
     spotsTotal: 20,
     spotsLeft: 8,
@@ -291,6 +309,7 @@ export const eventItems: EventItem[] = [
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/IMG_0092-725x400.jpeg",
     registrationUrl: "https://www.intereses.lv/rigas-bernu-un-jauniesu-radosas-makslas-konkurss-neparastas-lietas-ainava/",
+    sourceUrl: "https://www.intereses.lv/rigas-bernu-un-jauniesu-radosas-makslas-konkurss-neparastas-lietas-ainava/",
     status: "open",
   },
   {
@@ -314,6 +333,7 @@ export const eventItems: EventItem[] = [
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-5.png",
     registrationUrl: "https://www.intereses.lv/musdienu-dejas-video-konkurss/",
+    sourceUrl: "https://www.intereses.lv/musdienu-dejas-video-konkurss/",
     status: "upcoming",
   },
 ];
