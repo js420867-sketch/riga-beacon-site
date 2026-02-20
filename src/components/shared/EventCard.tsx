@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { MapPin, Clock } from "lucide-react";
+import { MapPin, Clock, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { EventItem } from "@/data/mockData";
 import { format } from "date-fns";
 import { lv } from "date-fns/locale";
@@ -17,6 +18,10 @@ export function EventCard({ event, variant = "default" }: EventCardProps) {
   const day = format(eventDate, "d");
   const month = format(eventDate, "MMM", { locale: lv }).toUpperCase();
   const fullDate = format(eventDate, "EEEE, d. MMMM", { locale: lv });
+
+  const spotsPercent = event.spotsTotal && event.spotsLeft !== undefined
+    ? Math.round(((event.spotsTotal - event.spotsLeft) / event.spotsTotal) * 100)
+    : null;
 
   if (variant === "compact") {
     return (
@@ -42,6 +47,15 @@ export function EventCard({ event, variant = "default" }: EventCardProps) {
                 </span>
               </div>
             </div>
+            {event.registrationUrl && (
+              <div className="shrink-0 self-center">
+                <Button size="sm" variant="outline" asChild onClick={e => e.stopPropagation()}>
+                  <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer">
+                    {t.events.register}
+                  </a>
+                </Button>
+              </div>
+            )}
           </CardContent>
         </Card>
       </Link>
@@ -60,7 +74,14 @@ export function EventCard({ event, variant = "default" }: EventCardProps) {
 
           {/* Content */}
           <div className="flex-1 p-4 sm:p-6">
-            <p className="text-sm text-muted-foreground mb-1 capitalize">{fullDate}</p>
+            <div className="flex items-start justify-between gap-3 mb-2">
+              <p className="text-sm text-muted-foreground capitalize">{fullDate}</p>
+              {event.status === "open" && (
+                <Badge className="shrink-0 bg-success/10 text-success border-0 text-xs">
+                  {t.events.registrationOpen}
+                </Badge>
+              )}
+            </div>
             <Link to={`/pasakumi/${event.id}`} className="group">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
                 {event.title}
@@ -78,12 +99,38 @@ export function EventCard({ event, variant = "default" }: EventCardProps) {
                 <MapPin className="h-4 w-4 text-primary" />
                 {event.location}
               </span>
+              {event.spotsLeft !== undefined && event.spotsTotal && (
+                <span className="flex items-center gap-1.5">
+                  <Users className="h-4 w-4 text-primary" />
+                  {event.spotsLeft} {t.events.spotsLeft}
+                </span>
+              )}
             </div>
-            {event.registrationUrl && (
-              <Button size="sm" asChild>
-                <Link to={event.registrationUrl}>{t.events.register}</Link>
-              </Button>
+
+            {/* Spots bar */}
+            {spotsPercent !== null && (
+              <div className="mb-4">
+                <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-primary rounded-full transition-all"
+                    style={{ width: `${spotsPercent}%` }}
+                  />
+                </div>
+              </div>
             )}
+
+            <div className="flex gap-2">
+              {event.registrationUrl && (
+                <Button size="sm" asChild>
+                  <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer">
+                    {t.events.register}
+                  </a>
+                </Button>
+              )}
+              <Button size="sm" variant="outline" asChild>
+                <Link to={`/pasakumi/${event.id}`}>{t.events.learnMore}</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </CardContent>
