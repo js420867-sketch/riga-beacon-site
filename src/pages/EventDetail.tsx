@@ -23,8 +23,9 @@ export default function EventDetail() {
 
   if (!event) return null;
 
-  const eventDate = new Date(event.date);
-  const endDate = event.endDate ? new Date(event.endDate) : null;
+  const parseDate = (s: string) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+  const eventDate = parseDate(event.date);
+  const endDate = event.endDate ? parseDate(event.endDate) : null;
   const fullDate = format(eventDate, "EEEE, d. MMMM yyyy", { locale: lv });
   const fullEndDate = endDate ? format(endDate, "d. MMMM yyyy", { locale: lv }) : null;
 
@@ -35,7 +36,7 @@ export default function EventDetail() {
 
   const isFull = event.spotsLeft === 0;
   const registrationPast = event.registrationDeadline
-    ? isPast(new Date(event.registrationDeadline))
+    ? isPast(parseDate(event.registrationDeadline))
     : false;
 
   return (
@@ -178,7 +179,7 @@ export default function EventDetail() {
                     <div className="text-sm">
                       <span className="text-muted-foreground">Pieteikties līdz: </span>
                       <span className="font-medium">
-                        {format(new Date(event.registrationDeadline), "d. MMMM yyyy", { locale: lv })}
+                        {format(parseDate(event.registrationDeadline!), "d. MMMM yyyy", { locale: lv })}
                       </span>
                     </div>
                   )}

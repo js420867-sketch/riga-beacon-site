@@ -24,10 +24,11 @@ export default function Events() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const eventDates = eventItems.map((event) => new Date(event.date));
+  const parseDate = (s: string) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+  const eventDates = eventItems.map((event) => parseDate(event.date));
 
   const displayedEvents = eventItems.filter((event) => {
-    const matchesDate = selectedDate ? isSameDay(new Date(event.date), selectedDate) : true;
+    const matchesDate = selectedDate ? isSameDay(parseDate(event.date), selectedDate) : true;
     const matchesCategory = activeCategory === "all" || event.category === activeCategory;
     return matchesDate && matchesCategory;
   });
