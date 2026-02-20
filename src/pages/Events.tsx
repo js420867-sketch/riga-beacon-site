@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CalendarDays, List } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { EventCard } from "@/components/shared/EventCard";
+import { CategoryFilter } from "@/components/shared/CategoryFilter";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Card } from "@/components/ui/card";
@@ -12,21 +13,27 @@ import { lv } from "date-fns/locale";
 
 type ViewMode = "list" | "calendar";
 
+const eventCategories = [
+  { id: "all", label: "Visi" },
+  { id: "competitions", label: "Konkursi" },
+  { id: "training", label: "Apmācības" },
+];
+
 export default function Events() {
   const [viewMode, setViewMode] = useState<ViewMode>("list");
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+  const [activeCategory, setActiveCategory] = useState("all");
 
-  // Get dates that have events for calendar highlighting
-  const eventDates = eventItems.map(event => new Date(event.date));
+  const eventDates = eventItems.map((event) => new Date(event.date));
 
-  // Filter events by selected date if in calendar view
-  const displayedEvents = selectedDate
-    ? eventItems.filter(event => isSameDay(new Date(event.date), selectedDate))
-    : eventItems;
+  const displayedEvents = eventItems.filter((event) => {
+    const matchesDate = selectedDate ? isSameDay(new Date(event.date), selectedDate) : true;
+    const matchesCategory = activeCategory === "all" || event.category === activeCategory;
+    return matchesDate && matchesCategory;
+  });
 
-  const hasEventsOnDate = (date: Date) => {
-    return eventDates.some(eventDate => isSameDay(eventDate, date));
-  };
+  const hasEventsOnDate = (date: Date) =>
+    eventDates.some((eventDate) => isSameDay(eventDate, date));
 
   return (
     <Layout>
@@ -41,7 +48,7 @@ export default function Events() {
               </div>
 
               {/* View Toggle */}
-              <div className="flex gap-2 p-1 bg-muted rounded-lg">
+              <div className="flex gap-2 p-1 bg-muted rounded-lg shrink-0">
                 <Button
                   variant={viewMode === "list" ? "default" : "ghost"}
                   size="sm"
@@ -64,6 +71,15 @@ export default function Events() {
             </div>
           </div>
 
+          {/* Category filter */}
+          <div className="mb-6">
+            <CategoryFilter
+              categories={eventCategories}
+              activeCategory={activeCategory}
+              onCategoryChange={(cat) => { setActiveCategory(cat); setSelectedDate(undefined); }}
+            />
+          </div>
+
           {/* Content */}
           <div className={viewMode === "calendar" ? "grid lg:grid-cols-[auto_1fr] gap-8" : ""}>
             {/* Calendar */}
@@ -75,9 +91,7 @@ export default function Events() {
                   onSelect={setSelectedDate}
                   locale={lv}
                   className="rounded-md"
-                  modifiers={{
-                    hasEvent: (date) => hasEventsOnDate(date),
-                  }}
+                  modifiers={{ hasEvent: (date) => hasEventsOnDate(date) }}
                   modifiersStyles={{
                     hasEvent: {
                       fontWeight: "bold",
@@ -114,7 +128,10 @@ export default function Events() {
                     className="animate-slide-up"
                     style={{ animationDelay: `${index * 0.05}s` }}
                   >
-                    <EventCard event={event} variant={viewMode === "calendar" ? "compact" : "default"} />
+                    <EventCard
+                      event={event}
+                      variant={viewMode === "calendar" ? "compact" : "default"}
+                    />
                   </div>
                 ))
               ) : (
