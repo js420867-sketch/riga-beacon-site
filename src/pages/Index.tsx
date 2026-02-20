@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, GraduationCap, Calendar, BookOpen, Award } from "lucide-react";
+import { ArrowRight, GraduationCap, Calendar, BookOpen, Award, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Layout } from "@/components/layout/Layout";
 import { NewsCard } from "@/components/shared/NewsCard";
 import { EventCard } from "@/components/shared/EventCard";
 import { newsItems, eventItems, quickLinks } from "@/data/mockData";
 import { t } from "@/lib/i18n";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const iconMap: Record<string, React.ElementType> = {
   GraduationCap,
@@ -22,6 +24,16 @@ const stats = [
   { value: "25+", label: "Gadi pieredzes" },
 ];
 
+const parseDate = (s: string) => {
+  const [y, m, d] = s.split("-").map(Number);
+  return new Date(y, m - 1, d);
+};
+
+const formatDate = (dateStr: string) => {
+  const d = parseDate(dateStr);
+  return d.toLocaleDateString("lv-LV", { day: "numeric", month: "long" });
+};
+
 export default function Index() {
   const methodicalNews = newsItems.filter(n => n.newsType === "methodical").slice(0, 3);
   const generalNews = newsItems.filter(n => n.newsType === "general").slice(0, 3);
@@ -29,24 +41,72 @@ export default function Index() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="hero-gradient text-primary-foreground py-16 md:py-24 lg:py-32">
-        <div className="container-page">
-          <div className="max-w-3xl animate-fade-in">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+      {/* Hero Section — kombinācija: fona attēls + teksts + tuvākie pasākumi */}
+      <section className="relative min-h-[520px] md:min-h-[620px] flex flex-col justify-end overflow-hidden">
+        {/* Background image */}
+        <img
+          src={heroBg}
+          alt="Rīgas bērnu interešu izglītība"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80" />
+
+        {/* Hero text */}
+        <div className="relative container-page pb-8 pt-24 md:pt-32 animate-fade-in">
+          <div className="max-w-2xl mb-8">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-white drop-shadow-lg">
               {t.home.hero.title}
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-primary-foreground/90 leading-relaxed">
+            <p className="text-base md:text-lg text-white/90 leading-relaxed mb-6 drop-shadow">
               {t.home.hero.subtitle}
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" variant="secondary" asChild>
+            <div className="flex flex-wrap gap-3">
+              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
                 <Link to="/kontakti">{t.home.hero.cta}</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+              <Button size="lg" variant="outline" className="border-white/60 text-white hover:bg-white/15 backdrop-blur-sm" asChild>
                 <Link to="/pasakumi">{t.home.hero.ctaSecondary}</Link>
               </Button>
             </div>
+          </div>
+
+          {/* Upcoming events strip */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pb-6">
+            {upcomingEvents.map((event, i) => (
+              <Link
+                key={event.id}
+                to={`/pasakumi/${event.id}`}
+                className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 hover:bg-white/20 transition-all animate-slide-up"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
+                <div className="flex items-start gap-3">
+                  {event.image && (
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-14 h-14 rounded-lg object-cover shrink-0"
+                    />
+                  )}
+                  <div className="min-w-0">
+                    <Badge variant="secondary" className="mb-1 text-xs bg-primary/80 text-white border-0">
+                      {formatDate(event.date)}
+                    </Badge>
+                    <p className="text-white text-sm font-medium leading-snug line-clamp-2 group-hover:text-primary-foreground transition-colors">
+                      {event.title}
+                    </p>
+                    <div className="flex items-center gap-1 mt-1 text-white/70 text-xs">
+                      <Clock className="h-3 w-3 shrink-0" />
+                      <span>{event.time}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-white/70 text-xs">
+                      <MapPin className="h-3 w-3 shrink-0" />
+                      <span className="truncate">{event.location.split(",")[0]}</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
