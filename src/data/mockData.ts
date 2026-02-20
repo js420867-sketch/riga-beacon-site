@@ -5,6 +5,7 @@ export interface NewsItem {
   title: string;
   excerpt: string;
   content: string;
+  fullContent?: string;
   category: string;
   newsType: "methodical" | "general";
   date: string;
@@ -77,7 +78,20 @@ export const newsItems: NewsItem[] = [
     id: "1",
     title: "Rīgas bērnu un jauniešu radošās mākslas konkurss \"Neparastās lietas. Ainava\"",
     excerpt: "Rīgas Bolderājas Jaunā pamatskola aicina audzēkņus piedalīties radošajā mākslas konkursā \"Neparastās lietas. Ainava\". Konkurss rosina skolēnus iepazīt Latvijas ainavistu darbus.",
-    content: "Rīgas Bolderājas Jaunā pamatskola sadarbībā ar Rīgas valstspilsētas pašvaldības Izglītības, kultūras un sporta departamenta Sporta un jaunatnes pārvaldi aicina Rīgas izglītības iestāžu audzēkņus piedalīties radošajā mākslas konkursā \"Neparastās lietas. Ainava\". Konkurss rosina skolēnus iepazīt Latvijas ainavistu darbus, iedziļināties to noskaņās un kompozīcijās.",
+    content: "Rīgas Bolderājas Jaunā pamatskola sadarbībā ar Rīgas valstspilsētas pašvaldības Izglītības, kultūras un sporta departamenta Sporta un jaunatnes pārvaldi aicina Rīgas izglītības iestāžu audzēkņus piedalīties radošajā mākslas konkursā \"Neparastās lietas. Ainava\".",
+    fullContent: `Rīgas Bolderājas Jaunā pamatskola sadarbībā ar Rīgas valstspilsētas pašvaldības Izglītības, kultūras un sporta departamenta Sporta un jaunatnes pārvaldi aicina Rīgas izglītības iestāžu audzēkņus piedalīties radošajā mākslas konkursā **"Neparastās lietas. Ainava"**.
+
+Konkurss rosina skolēnus iepazīt Latvijas ainavistu darbus, iedziļināties to noskaņās un kompozīcijās, kā arī radīt savas oriģinālas interpretācijas, izmantojot tikai **otrreizējās aprites materiālus** – kartonu, papīru, tekstilu, plastmasu, koka un metāla atlikumus un citus pieejamos resursus.
+
+Tā ir iespēja attīstīt radošumu, domāt ilgtspējīgi, eksperimentēt ar faktūrām un krāsām, kā arī paraudzīties uz Latvijas ainavu no jauna skatapunkta.
+
+Konkursa darbi jāiesniedz **2026. gada 19. martā no pl. 10:00 – 18:00** RTU Arhitektūras un dizaina institūtā – pārejā no Ķīpsalas ielas 6 uz Ķīpsalas ielu 6a, Rīgā. Veiksmīgākie darbi tiks eksponēti kopīgā izstādē.
+
+**Aicinām skolēnus domāt ārpus ierastajiem rāmjiem un veidot neparastus darbus.**
+
+Papildus informāciju meklē Rīgas Bolderājas Jaunās pamatskolas [mājaslapā](http://www.r19intereses.lv/). Nolikumu meklē [intereses.lv](https://www.intereses.lv/vizuala-un-vizuali-plastiska-maksla/nolikumi/).
+
+*Informāciju sagatavoja: Dace Timule, Rīgas Bolderājas Jaunās pamatskolas izglītības metodiķe.*`,
     category: "competitions",
     newsType: "general",
     date: "2026-02-19",
@@ -91,7 +105,28 @@ export const newsItems: NewsItem[] = [
     id: "2",
     title: "Aicinām pieteikties programmai \"Stikla mākslas daudzveidība, apstrādes iespējas, tehnikas un paņēmieni darbu izveidē\"",
     excerpt: "RIMC aicina pieteikties pedagogus profesionālās pilnveides programmai. Nodarbības notiks 2026. gada 23. martā un 30. martā no plkst. 10.00 līdz 13.00 Rīgas Bērnu un jauniešu centrā \"Laimīte\".",
-    content: "Rīgas Interešu izglītības metodiskais centrs aicina pieteikties interešu izglītības programmu pedagogus profesionālās pilnveides programmas \"Stikla mākslas daudzveidība, apstrādes iespējas, tehnikas un paņēmieni darbu izveidē\" (8 stundas) apguvei, kas norisināsies 2026. gada 23. martā un 30. martā.",
+    content: "Rīgas Interešu izglītības metodiskais centrs aicina pieteikties interešu izglītības programmu pedagogus profesionālās pilnveides programmas apguvei.",
+    fullContent: `Rīgas Interešu izglītības metodiskais centrs aicina pieteikties interešu izglītības programmu pedagogus profesionālās pilnveides programmas **"Stikla mākslas daudzveidība, apstrādes iespējas, tehnikas un paņēmieni darbu izveidē"** (8 stundas) apguvei, kas norisināsies 2026. gada 23. martā un 30. martā no plkst. 10.00 līdz 13.00 Rīgas Bērnu un jauniešu centrā "Laimīte", Baltāsbaznīcas ielā 14, Rīgā.
+
+**Lektore – Ilze Apine.**
+
+**Programma piedāvā:**
+
+Programma dod iespēju gūt zināšanas par stikla materiālu un tā specifiku, mākslinieciskās izteiksmes līdzekļiem, apstrādes iespējām, materiāliem un instrumentiem. Apgūt stikla apstrādes paņēmienus un tehnikas:
+- kausēšanu, gravēšanu, kodināšanu;
+- dažādu materiālu (arī dažādu stiklu) apvienojumu un sakausēšanas pamatprincipus;
+- to pielietojumu mācību nodarbībās un jaunradē stikla darbu izveidē.
+
+Nodarbību laikā tiks izgatavoti stikla dizaina priekšmeti – rotaslietas, dekori.
+
+**Norises vieta un laiks:**
+- Rīgas Bērnu un jauniešu centrs "Laimīte", Baltāsbaznīcas iela 14
+- 2026. gada 23. un 30. marts
+- No plkst. 10.00 līdz 13.00
+
+**Pieteikuma anketa:** Pieejama [šeit](https://forms.office.com/e/).
+
+**Informācijai:** Aivita Grīna, tālr. 29704315, e-pasts: agrina5@edu.riga.lv`,
     category: "training",
     newsType: "methodical",
     date: "2026-02-18",
@@ -105,7 +140,28 @@ export const newsItems: NewsItem[] = [
     id: "3",
     title: "Bērnu un jauniešu stikla mākslas konkurss-izstāde \"Anna izzina Rīgu. DURVIS, KAS NAV TIKAI DURVIS\"",
     excerpt: "Rīgas Tehniskās jaunrades nams \"Annas 2\" aicina pieteikties bērnu un jauniešu stikla mākslas konkursam-izstādei. Konkurss norisinās no 2026. gada 9. marta līdz 29. maijam.",
-    content: "Rīgas Tehniskās jaunrades nams \"Annas 2\" aicina pieteikties bērnu un jauniešu stikla mākslas konkursam-izstādei \"Anna izzina Rīgu. DURVIS, KAS NAV TIKAI DURVIS.\" Konkurss norisinās no 2026. gada 9. marta līdz 29. maijam. Šī gada tēma aicina paraudzīties uz Rīgu citām acīm.",
+    content: "Rīgas Tehniskās jaunrades nams \"Annas 2\" aicina pieteikties bērnu un jauniešu stikla mākslas konkursam-izstādei.",
+    fullContent: `Rīgas Tehniskās jaunrades nams "Annas 2" aicina pieteikties bērnu un jauniešu stikla mākslas konkursam-izstādei **"Anna izzina Rīgu. DURVIS, KAS NAV TIKAI DURVIS."**
+
+Konkurss norisinās **no 2026. gada 9. marta līdz 29. maijam.**
+
+Šī gada tēma aicina paraudzīties uz Rīgu citām acīm, uztverot durvis kā stāsta sākumu. Durvis pilsētvidē nav tikai ieeja un izeja, tās atver pagātnes noslēpumus, ved uz jauniem atklājumiem un glabā neskaitāmus Rīgas stāstus. Dalībnieki aicināti ielūkoties detaļās, faktūrās, ritmos un simbolos, kas slēpjas gan vēsturiskās, gan modernās Rīgas durvīs.
+
+Konkursā aicināti piedalīties Rīgas vispārējās un interešu izglītības iestāžu audzēkņi vecumā no **7 līdz 25 gadiem**, trīs vecuma grupās:
+1. 7–11 gadi
+2. 12–15 gadi
+3. 16–25 gadi
+
+**Kas tiks darīts konkursā?**
+
+Dalībnieki kopā ar pedagogiem vai individuāli izpētīs Annas ielas apkārtni, meklējot unikālas un iedvesmojošas durvis, slēptas detaļas un neparastus vizuālus atradumus. Redzētais tiks attēlots skiču formā, bet labākās idejas izvērtēs žūrija.
+
+Žūrijas visaugstāk novērtētās skices būs iespēja realizēt stikla mākslas tehnikā, veidojot unikālu mākslas darbu.
+
+**Svarīgi:**
+- Pieteikšanās līdz 2026. gada 9. martam – [www.tjn.lv](http://www.tjn.lv)
+- Skiču radīšanas plenēri: 10.03., 12.03., 17.03., 19.03.
+- Skiču iesniegšana individuāli līdz 20. martam`,
     category: "competitions",
     newsType: "general",
     date: "2026-02-18",
@@ -119,7 +175,24 @@ export const newsItems: NewsItem[] = [
     id: "4",
     title: "Aicinām pieteikties pedagogu profesionālās kompetences pilnveides semināram \"Vizuālās identitātes veidošana\"",
     excerpt: "RIMC aicina Rīgas pašvaldības izglītības iestāžu interešu izglītības skolotājus pieteikties semināram. Programma norisināsies 2026. gada 18. martā no plkst. 10.00 līdz 13.00.",
-    content: "Rīgas Interešu izglītības metodiskais centrs aicina Rīgas pašvaldības izglītības iestāžu interešu izglītības skolotājus pieteikties pedagogu profesionālās kompetences pilnveides semināra \"Vizuālās identitātes veidošana\" apguvei. Programma norisināsies 2026. gada 18. martā.",
+    content: "Rīgas Interešu izglītības metodiskais centrs aicina Rīgas pašvaldības izglītības iestāžu interešu izglītības skolotājus pieteikties semināra apguvei.",
+    fullContent: `Rīgas Interešu izglītības metodiskais centrs aicina Rīgas pašvaldības izglītības iestāžu interešu izglītības skolotājus pieteikties pedagogu profesionālās kompetences pilnveides semināra **"Vizuālās identitātes veidošana"** apguvei.
+
+Programma norisināsies 2026. gada **18. martā** no plkst. 10.00 līdz 13.00. **Lektore – Inese Vēriņa-Lubiņa.**
+
+Mūsdienu izglītības vidē pedagogs bieži vien ir ne tikai skolotājs, bet arī sava pulciņa vai iestādes pasākumu organizators un vizuālā tēla veidotājs. Plakāts jaunu dalībnieku uzņemšanai, pateicības dāvana viesiem vai informatīvs materiāls par pasākumu – katra detaļa veido kopējo iespaidu.
+
+Programma sniegs iespēju padziļināt izpratni par vizuālās prezentācijas materiālu izstrādi – no idejas un koncepta radīšanas līdz gatavam produktam. Tiks apskatīti būtiskākie principi, kas palīdz veidot mūsdienīgu un kvalitatīvu dizainu, izmantojot vienkāršus, bet efektīvus paņēmienus.
+
+**Programmas tēmas:**
+- Vizuālās identitātes pamati – kas veido zīmola tēlu?
+- Krāsu teorija un tipogrāfija pedagoga darbā
+- Kompozīcija un vizuālā hierarhija
+- Praktiskie uzdevumi ar Canva un citiem rīkiem
+
+**Pieteikšanās:** Pieejama [šeit](https://forms.office.com/e/).
+
+**Informācijai:** Aivita Grīna, tālr. 29704315, e-pasts: agrina5@edu.riga.lv`,
     category: "training",
     newsType: "methodical",
     date: "2026-02-17",
@@ -133,7 +206,27 @@ export const newsItems: NewsItem[] = [
     id: "5",
     title: "Aicinām pieteikties pedagogu profesionālās kompetences pilnveides programmai \"Dramaturģijas pamati\"",
     excerpt: "RIMC aicina piedalīties attālinātai profesionālās kompetences pilnveides programmai \"Dramaturģijas pamati\" (12 stundas). Programma norisināsies tiešsaistē 2026. gada 9. un 11. martā, lektors – Lauris Gundars.",
-    content: "Rīgas Interešu izglītības metodiskais centrs aicina Rīgas pašvaldības izglītības iestāžu interešu izglītības skolotājus pieteikties attālinātai profesionālās kompetences pilnveides programmai \"Dramaturģijas pamati\" (12 stundas) apguvei. Programma norisināsies tiešsaistē 2026. gada 9. un 11. martā no plkst. 11.00 līdz 15.00, lektors – Lauris Gundars.",
+    content: "Rīgas Interešu izglītības metodiskais centrs aicina Rīgas pašvaldības izglītības iestāžu interešu izglītības skolotājus pieteikties attālinātai programmai.",
+    fullContent: `Rīgas Interešu izglītības metodiskais centrs aicina Rīgas pašvaldības izglītības iestāžu interešu izglītības skolotājus pieteikties attālinātai profesionālās kompetences pilnveides programmai **"Dramaturģijas pamati"** (12 stundas) apguvei.
+
+Programma norisināsies tiešsaistē 2026. gada **9. un 11. martā** no plkst. 11.00 līdz 15.00.
+
+**Lektors – Lauris Gundars.**
+
+Programmas dalībniekiem jāapgūst dramaturģisko tekstu jaunrades pamati, dramaturģijas amata rīku pielietošanas principi, kas pielietojami turpmākā teātra mākslas skolotāju ikdienas darbā.
+
+**Pirms programmas apguves jāizlasa R. Blaumaņa luga "Skroderdienas Silmačos".**
+
+**Programmas tēmas:**
+- Dramaturģija un daiļliteratūra. Dramaturģijas pirmsākumi un iezīmes. Dramaturģiska darba struktūra.
+- Dramaturģijas likumsakarības – dzīves procesu un loģikas kopija.
+- Stāsts – dramaturģiska materiāla tehnoloģiskais pamats. Paradokss.
+- Dramaturģiska darba vēstījums. Tēmas, ideja un virsuzdevums.
+- Dramaturģiska teksta pamats – raksturs, tā izveides likumsakarības, paņēmieni.
+
+**Pieteikuma anketa:** Pieejama [šeit](https://forms.office.com/Pages/ResponsePage.aspx?id=zQhK8ENaGEOcgp3Ru82TejvGZc4hkvFHlvXFNxrzeNhURVhXTzVVMEVVQTRNRjdNRlJPWENWRUZSWi4u).
+
+**Informācijai:** Antra Ņjuša, tālr. 26434364, e-pasts: anjusa@edu.riga.lv`,
     category: "training",
     newsType: "methodical",
     date: "2026-02-17",
@@ -147,7 +240,19 @@ export const newsItems: NewsItem[] = [
     id: "6",
     title: "Stikla mākslinieku izstāde, kas veltīta Krišjāņa Valdemāra piemiņai",
     excerpt: "Ceturtdien, 19. februārī plkst. 16.00 Rīgas domes foajē atklās stikla mākslinieku izstādi, veltītu izcilā jaunlatvieša Krišjāņa Valdemāra piemiņai.",
-    content: "Ceturtdien, 19. februārī plkst. 16.00 Rīgas domes foajē atklās stikla mākslinieku izstādi, veltītu izcilā jaunlatvieša, politiķa un valstsvīra, kultūras un sabiedriskā darbinieka Krišjāņa Valdemāra piemiņai. Foajē tiks izstādīti 6. Latvijas jaunatnes stikla konkursantu darbi.",
+    content: "Ceturtdien, 19. februārī plkst. 16.00 Rīgas domes foajē atklās stikla mākslinieku izstādi.",
+    fullContent: `Ceturtdien, **19. februārī plkst. 16.00** Rīgas domes foajē atklās stikla mākslinieku izstādi, veltītu izcilā jaunlatvieša, politiķa un valstsvīra, kultūras un sabiedriskā darbinieka, latviešu jūrniecības attīstītāja **Krišjāņa Valdemāra** piemiņai.
+
+Foajē tiks izstādīti 6. Latvijas jaunatnes stikla konkursantu darbi un konkursa žūrijas locekļu – Latvijā un pasaulē pazīstamu mākslinieku darbi.
+
+Blakus mākslas skolu un interešu izglītības studiju audzēkņu darbiem varēs baudīt **Daiņa Gudovska**, ilggadēja LMA pasniedzēja, **Andas Munkevicas** – AM Studio vadītājas darbi, kā arī **Martas Ģibietes**, **Ramonas Pēkšēnas**, **Margaritas Budzes**, **Janas Kovaļevskas**, **Ilzes Rimicānes** un **Ingas Jaunzemes** darbi.
+
+Izstādes centrā eksponēts **Garkalnes Mākslas skolas audzēknes Valērijas Laumas Drapezas** darbs, kurš stikla konkursā ieguva **1. vietu** un ataino burenieku, kas pilnās burās traucas uz priekšu. Burenieks simbolizē latvjus, kas neskatoties ne uz kādiem vējiem nelokāmi dodas uz priekšu nākotnē.
+
+Izstādē ir uzsvērta stikla mākslinieku nerakstītās ģildes pēctecības nozīmība un latvisko vērtību pārneses nepārtrauktība stikla mākslā.
+
+**Vieta:** Rīgas domes foajē, Rātslaukums 1, Rīga
+**Laiks:** 19. februāris, plkst. 16:00`,
     category: "announcements",
     newsType: "general",
     date: "2026-02-18",
@@ -161,7 +266,21 @@ export const newsItems: NewsItem[] = [
     id: "7",
     title: "24 stundu spēļu izstrādes hakatons jeb game jam vidusskolēniem – \"Campfire Riga\"",
     excerpt: "Aicinām vidusskolēnus piedalīties 24 stundu spēļu izstrādes hakatonā. Reģistrācija atvērta jauniešiem, kuri interesējas par spēļu izstrādi, programmēšanu un radošu domāšanu.",
-    content: "Aicinām vidusskolēnus piedalīties 24 stundu spēļu izstrādes hakatonā jeb game jam \"Campfire Riga\". Hakatons pulcēs jauniešus no visas Latvijas, lai 24 stundu laikā izstrādātu oriģinālas datorspēles.",
+    content: "Aicinām vidusskolēnus piedalīties 24 stundu spēļu izstrādes hakatonā jeb game jam \"Campfire Riga\".",
+    fullContent: `Rīgas Tehniskās jaunrades namā "Annas 2" Annas ielā 2, Rīgā no **28. februāra līdz 1. martam**, norisināsies pirmais 24 stundu spēļu izstrādes hakatons jeb game jam vidusskolēniem – **"Campfire Riga"**.
+
+Campfire ir globāla iniciatīva, kuras ietvaros dažādās pasaules pilsētās notiks vairāk nekā 200 spēļu izstrādes hakatoni.
+
+Atšķirībā no tradicionāliem hakatoniem, "Campfire Riga" galvenais mērķis ir dot jauniešiem iespēju piedalīties un radīt spēli, ar kuru viņi paši var lepoties – neatkarīgi no iepriekšējās programmēšanas pieredzes.
+
+Jaunieši vecumā no **13 līdz 18 gadiem** apvienosies komandās, lai 24 stundu laikā no nulles izstrādātu savu spēli, reāli programmējot.
+
+> "Mēs vēlamies parādīt Latvijas jauniešiem, ka programmēšana nav tikai garas stundas pie mācību grāmatām, bet gan iespēja pašiem radīt savas pasaules un spēles." – Ernests Mikuts, organizators
+
+24 stundu formāts ļauj dalībniekiem padziļināti strādāt pie savām idejām bez pārmērīgas steigas. Tas mazina stresu, veicina ciešāku sadarbību komandās un dod iespēju apgūt jaunas tehnoloģijas.
+
+**Norises vieta:** RTJN "Annas 2", Annas iela 2, Rīga
+**Laiks:** 28. februāris – 1. marts, 2026`,
     category: "projects",
     newsType: "general",
     date: "2026-02-17",
@@ -175,7 +294,25 @@ export const newsItems: NewsItem[] = [
     id: "8",
     title: "Aicinām pieteikties profesionālās kompetences pilnveides programmai \"Iztēles un kreativitātes rosinoši paņēmieni vizuāli plastiskajā mākslā\"",
     excerpt: "Programma norisināsies 2026. gada 27. februārī no plkst. 11.00 līdz 15.00 Rīgas bērnu un jauniešu centrā \"Altona\". Pieteikšanās pie Aivitas Grīnas.",
-    content: "Rīgas Interešu izglītības metodiskais centrs aicina pieteikties profesionālās kompetences pilnveides programmai \"Iztēles un kreativitātes rosinoši paņēmieni vizuāli plastiskajā mākslā\". Programma norisināsies 2026. gada 27. februārī no plkst. 11.00 līdz 15.00 Rīgas bērnu un jauniešu centrā \"Altona\", Altonovas ielā 6.",
+    content: "Rīgas Interešu izglītības metodiskais centrs aicina pieteikties profesionālās kompetences pilnveides programmai.",
+    fullContent: `Rīgas Interešu izglītības metodiskais centrs aicina interešu izglītības pedagogus 27. februārī pieteikties profesionālās kompetences pilnveides programmas **"Iztēles un kreativitātes rosinoši paņēmieni vizuāli plastiskajā mākslā"** apguvei.
+
+Programma sniedz plašu ieskatu radošā darba procesa norisē un rezultāta sasniegšanā. Programmas lektore **Ima Mauriņa–Mīlgrāve** ir apkopojusi izzinošu informāciju, uzskaites un metodiskos materiālus.
+
+**Tematika:**
+- Papīra materiāla un plastikas specifika, apstrādes iespējas, mākslinieciskās izteiksmes līdzekļi, tehnikas paņēmieni, nepieciešamie materiāli un instrumenti;
+- Metodiskie ieteikumi darba organizēšanai un pozitīva rezultāta sasniegšanai;
+- Iztēles rosinošu paņēmienu pielietojums, izmantojot mākslas darbu vēstījumus;
+- Daba kā iztēles rosināšanas avots, kompozīcijas izveide, eksperimentāli un neordināri risinājumi sadzīves formu "otrajai dzīvei".
+
+**Norises vieta un laiks:**
+- Rīgas bērnu un jauniešu centrs "Altona", Altonovas iela 6
+- 2026. gada 27. februāris
+- No plkst. 11.00 līdz 15.00
+
+> ⚠️ Grupa nokomplektēta
+
+**Informācijai:** Aivita Grīna, tālr. 29704315, e-pasts: agrina5@edu.riga.lv`,
     category: "training",
     newsType: "methodical",
     date: "2026-02-15",
