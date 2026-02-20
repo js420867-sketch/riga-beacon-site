@@ -19,6 +19,7 @@ export interface EventItem {
   id: string;
   title: string;
   description: string;
+  fullContent?: string;
   date: string;
   endDate?: string;
   time: string;
@@ -26,6 +27,10 @@ export interface EventItem {
   category: string;
   image?: string;
   registrationUrl?: string;
+  registrationDeadline?: string;
+  organizer?: string;
+  contactName?: string;
+  contactEmail?: string;
   status?: "open" | "closed" | "upcoming";
   spotsTotal?: number;
   spotsLeft?: number;
@@ -186,83 +191,173 @@ export const eventItems: EventItem[] = [
   {
     id: "1",
     title: "Rīgas vokālās mūzikas konkursa \"Balsis 2026\" I kārta — Kurzemes rajona ansambļi",
-    description: "Rīgas vokālās mūzikas konkursa \"Balsis 2026\" I kārta Kurzemes rajona, Latgales, Zemgales priekšpilsētu B grupas ansambļiem. Atbildīgā — Arta Grīna.",
+    description: "Rīgas vokālās mūzikas konkursa \"Balsis 2026\" I kārta Kurzemes rajona, Latgales, Zemgales priekšpilsētu B grupas ansambļiem.",
+    fullContent: `Tradicionālā vokālās mūzikas konkursa "Balsis 2026" I kārta Rīgas pilsētā norisināsies no 2026. gada 19. līdz 21. februārim.
+
+**Konkursa norise**
+
+Konkursā katram ansamblim būs jāizpilda 3 dziesmas:
+- Pirmā no tām – brīvas izvēles latviešu tautasdziesma *a cappella* unisonā;
+- Otrā un trešā dziesma – brīvas izvēles latviešu tautasdziesmas apdare vai latviešu autora oriģināldziesma (ar vai bez klavieru pavadījuma).
+
+**B grupas Latgales, Kurzemes un Zemgales priekšpilsētu muzikālie kolektīvi** 20. februārī dziedās Rīgas bērnu un jauniešu centrā "Altona", Altonavas ielā 6.
+
+Pēc I kārtas konkursa rezultātiem labākie ansambļi katrā vecuma grupā tiks izvirzīti konkursa **II kārtai** Rīgas pilsētā, kas norisināsies no 2026. gada 2.–3. martam.
+
+**Pieteikšanās**
+
+Pieteikumu dalībai Konkursa I kārtā no vokālā ansambļa vadītājiem gaidīja līdz 2026. gada 11. februārim.
+
+**Atbildīgā:** Arta Grīna`,
     date: "2026-02-20",
     time: "14:00",
     location: "Rīgas Bērnu un jauniešu centrs \"Altona\", Altonavas iela 6",
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2025/12/Balsis-2026-1.png",
-    registrationUrl: "https://www.intereses.lv/vokalie-ansambli-sak-gatavoties-rigas-vokalas-muzikas-konkursam-balsis-2026/",
+    registrationUrl: "https://forms.office.com/e/ZLxdS6Mjnv",
+    organizer: "Rīgas Interešu izglītības metodiskais centrs",
+    contactName: "Arta Grīna",
+    contactEmail: "agrina@edu.riga.lv",
     sourceUrl: "https://www.intereses.lv/vokalie-ansambli-sak-gatavoties-rigas-vokalas-muzikas-konkursam-balsis-2026/",
     status: "open",
   },
   {
     id: "2",
     title: "Rīgas vokālās mūzikas konkursa \"Balsis 2026\" I kārta — A grupas ansambļi",
-    description: "Rīgas vokālās mūzikas konkursa \"Balsis 2026\" I kārta visu rajonu un priekšpilsētu A grupas ansambļiem. Atbildīgā — Arta Grīna.",
+    description: "Rīgas vokālās mūzikas konkursa \"Balsis 2026\" I kārta visu rajonu un priekšpilsētu A grupas ansambļiem.",
+    fullContent: `Tradicionālā vokālās mūzikas konkursa "Balsis 2026" I kārta Rīgas pilsētā norisināsies no 2026. gada 19. līdz 21. februārim.
+
+**Konkursa norise**
+
+Konkursā katram ansamblim būs jāizpilda 3 dziesmas:
+- Pirmā no tām – brīvas izvēles latviešu tautasdziesma *a cappella* unisonā;
+- Otrā un trešā dziesma – brīvas izvēles latviešu tautasdziesmas apdare vai latviešu autora oriģināldziesma (ar vai bez klavieru pavadījuma).
+
+**Visus A grupas kolektīvus** 21. februārī klausīsimies Rīgas pamatskolā "Rīdze", Krišjāņa Valdemāra ielā 2.
+
+Pēc I kārtas konkursa rezultātiem labākie ansambļi katrā vecuma grupā tiks izvirzīti konkursa **II kārtai** Rīgas pilsētā, kas norisināsies no 2026. gada 2.–3. martam.
+
+**Atbildīgā:** Arta Grīna`,
     date: "2026-02-21",
     time: "11:00",
     location: "Rīgas pamatskola \"Rīdze\", Krišjāņa Valdemāra iela 2",
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2025/12/Balsis-2026-1.png",
-    registrationUrl: "https://www.intereses.lv/vokalie-ansambli-sak-gatavoties-rigas-vokalas-muzikas-konkursam-balsis-2026/",
+    registrationUrl: "https://forms.office.com/e/ZLxdS6Mjnv",
+    organizer: "Rīgas Interešu izglītības metodiskais centrs",
+    contactName: "Arta Grīna",
+    contactEmail: "agrina@edu.riga.lv",
     sourceUrl: "https://www.intereses.lv/vokalie-ansambli-sak-gatavoties-rigas-vokalas-muzikas-konkursam-balsis-2026/",
     status: "open",
   },
   {
     id: "3",
     title: "Rīgas bērnu un jauniešu tradicionālās dziedāšanas konkurss \"Dziesmu dziedu, kāda bija\"",
-    description: "Ikgadējais tradicionālās dziedāšanas konkurss bērniem un jauniešiem. Atbildīgā — Dina Liepa.",
+    description: "Ikgadējais tradicionālās dziedāšanas konkurss bērniem un jauniešiem Rīgas Skolēnu pilī.",
+    fullContent: `Ikgadējais tradicionālās dziedāšanas konkurss "Dziesmu dziedu, kāda bija" jau tūlīt! Aicinām visus dziedātgribētājus apgūt ko jaunu – izmēģināt savas prasmes solo vai dueta dziedāšanā, baudot tradicionālo skanējumu!
+
+Jau šī gada **22. februārī Bērnu un jauniešu centrs "Rīgas Skolēnu pils"** tiks pieskandināts ar skaļām bērnu balsīm! Tiks izdziedātās gan talku dziesmas, gan pavasara rotāšanās, gan šūpuļdziesmas, gan bērnu dziesmas, neiztiksim bez puišu un meitu dziesmām, kuri jau lūkojās precību virzienā.
+
+**Konkursa mērķis** ir dalībniekiem iepazīt un izkopt dažādus tradicionālās dziedāšanas paņēmienus, bagātinot savu muzikālo pieredzi. Katrs dalībnieks konkursā dzied divas neapdarinātas tautas dziesmas, atbilstoši manierei kādā situācijā senāk tās tikušas dziedātas.
+
+Konkurss notiek jau vairāk kā **divdesmit gadus** un katru gadu Rīgā tajā piedalās vairāki desmiti dziedātāju.
+
+**Pieteikšanās:** Aizpildītu pieteikumu dalībai Konkursā nosūta Dīnai Liepai uz e-pastu dliepa4@edu.riga.lv.`,
     date: "2026-02-22",
     time: "11:00",
     location: "BJC \"Rīgas Skolēnu pils\" Svētku zāle, Krišjāņa Barona iela 99",
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-1.png",
-    registrationUrl: "https://www.intereses.lv/ikgadejais-tradicionalas-dziedasanas-konkurss-dziesmu-dziedu-kada-bija/",
+    organizer: "Rīgas Interešu izglītības metodiskais centrs",
+    contactName: "Dina Liepa",
+    contactEmail: "dliepa4@edu.riga.lv",
     sourceUrl: "https://www.intereses.lv/ikgadejais-tradicionalas-dziedasanas-konkurss-dziesmu-dziedu-kada-bija/",
     status: "open",
   },
   {
     id: "4",
     title: "Profesionālās kompetences pilnveides seminārs \"Drāmas terapija\"",
-    description: "Seminārs interešu izglītības pedagogiem par drāmas terapijas metodēm. Pieteikties pie Aivitas Grīnas.",
+    description: "Seminārs interešu izglītības pedagogiem par drāmas terapijas metodēm. Lektore – Anna Šteina, sertificēta drāmas terapeite.",
+    fullContent: `Rīgas Interešu izglītības metodiskais centrs aicina Rīgas pašvaldības izglītības iestāžu interešu izglītības pedagogus pieteikties profesionālās kompetences pilnveides semināra **"Drāmas terapija un drāmas metodes"** apguvei.
+
+Programmas dalībnieki gūs ieskatu drāmas terapijas pamatos un metodēs. **Lektore – Anna Šteina** – sertificēta drāmas terapeite, sertificēta supervizore, teātra un runas pedagogs, otrā līmeņa EMDR terapijas metodes lietotājs dalīsies savā pieredzē:
+
+- Kādus uzdevumus un vingrinājumus ikdienā izmantot darbā ar audzēkņiem, kuriem ir grūti izteikties verbāli, ar uzvedības, uzmanības un mācīšanās traucējumiem;
+- Kā arī tiem, kuriem ir emocionālas un psiholoģiskas grūtības.
+
+**Aicinām uz semināru ierasties ērtā apģērbā un apavos, jo notiks arī praktiskie vingrinājumi.**
+
+> ⚠️ Grupa nokomplektēta`,
     date: "2026-02-25",
     time: "10:00 - 14:00",
     location: "Rīgas bērnu un jauniešu centrs \"Laimīte\", Sarkandaugavas iela 24",
     category: "training",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-3-1.png",
-    registrationUrl: "https://www.intereses.lv/aicinam-pieteikties-pedagogu-profesionalas-kompetences-pilnveides-seminaram-dramas-terapija/",
+    registrationUrl: "https://forms.office.com/e/BUspEY32En",
+    registrationDeadline: "2026-02-23",
+    organizer: "Rīgas Interešu izglītības metodiskais centrs",
+    contactName: "Aivita Grīna",
+    contactEmail: "agrina5@edu.riga.lv",
     sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-pedagogu-profesionalas-kompetences-pilnveides-seminaram-dramas-terapija/",
     status: "open",
     spotsTotal: 25,
-    spotsLeft: 10,
+    spotsLeft: 0,
   },
   {
     id: "5",
     title: "Profesionālās kompetences pilnveides programma \"Iztēles un kreativitātes rosinoši paņēmieni vizuāli plastiskajā mākslā\"",
-    description: "Praktiski radošā nodarbība mākslas pedagogiem. Atbildīgās — Aivita Grīna un Līga Baņķiere.",
+    description: "Praktiski radošā nodarbība mākslas pedagogiem. Lektore – Ima Mauriņa-Mīlgrāve.",
+    fullContent: `Rīgas Interešu izglītības metodiskais centrs aicina interešu izglītības pedagogus pieteikties profesionālās kompetences pilnveides programmas **"Iztēles un kreativitātes rosinoši paņēmieni vizuāli plastiskajā mākslā"** apguvei.
+
+Programma sniedz plašu ieskatu radošā darba procesa norisē un rezultāta sasniegšanā. Programmas lektore **Ima Mauriņa–Mīlgrāve** ir apkopojusi izzinošu informāciju, uzskaites un metodiskos materiālus. Programma iepazīstina ar izstrādātu pieeju iztēles un kreativitātes rosināšanas procesa attīstīšanai.
+
+**Tematika:**
+- Papīra materiāla un plastikas specifika, apstrādes iespējas, mākslinieciskās izteiksmes līdzekļi, tehnikas paņēmieni, nepieciešamie materiāli un instrumenti;
+- Metodiskie ieteikumi darba organizēšanai un pozitīva rezultāta sasniegšanai;
+- Iztēles rosinošu paņēmienu pielietojums, izmantojot mākslas darbu vēstījumus;
+- Daba kā iztēles rosināšanas avots, kompozīcijas izveide, eksperimentāli un neordināri risinājumi.
+
+> ⚠️ Grupa nokomplektēta`,
     date: "2026-02-27",
     time: "11:00 - 15:00",
     location: "Rīgas bērnu un jauniešu centrs \"Altona\", Altonovas iela 6",
     category: "training",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-725-x-400-pikseli-4-1.png",
-    registrationUrl: "https://www.intereses.lv/aicinam-pieteikties-profesionalas-kompetences-pilnveides-programmai-izteles-un-kreativitates-rosinosi-panemieni-vizuali-plastiskaja-maksla/",
+    organizer: "Rīgas Interešu izglītības metodiskais centrs",
+    contactName: "Aivita Grīna",
+    contactEmail: "agrina5@edu.riga.lv",
     sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-profesionalas-kompetences-pilnveides-programmai-izteles-un-kreativitates-rosinosi-panemieni-vizuali-plastiskaja-maksla/",
     status: "open",
     spotsTotal: 20,
-    spotsLeft: 7,
+    spotsLeft: 0,
   },
   {
     id: "6",
     title: "Pedagogu profesionālās kompetences pilnveides programma \"Dramaturģijas pamati\"",
-    description: "Attālinātā programma teātra pedagogiem (12 stundas), lektors — Lauris Gundars. Atbildīgā — Antra Ņjuša.",
+    description: "Attālinātā programma teātra pedagogiem (12 stundas), lektors — Lauris Gundars.",
+    fullContent: `Rīgas Interešu izglītības metodiskais centrs aicina Rīgas pašvaldības izglītības iestāžu interešu izglītības skolotājus pieteikties attālinātai profesionālās kompetences pilnveides programmai **"Dramaturģijas pamati"** (12 stundas) apguvei.
+
+Programma norisināsies tiešsaistē 2026. gada **9. un 11. martā** no plkst. 11.00 līdz 15.00.
+
+**Lektors – Lauris Gundars.**
+
+**Pirms programmas apguves jāizlasa R. Blaumaņa luga "Skroderdienas Silmačos".**
+
+**Programmas tēmas:**
+- Dramaturģija un daiļliteratūra. Dramaturģijas pirmsākumi. Dramaturģijas iezīmes. Dramaturģiska darba struktūra.
+- Dramaturģijas likumsakarības – dzīves procesu un loģikas kopija. Stāsts – dramaturģiska materiāla tehnoloģiskais pamats.
+- Paradokss. Dramaturģiska darba vēstījums. Tēmas, ideja un virsuzdevums.
+- Dramaturģiska teksta pamats – raksturs, tā izveides likumsakarības, paņēmieni.`,
     date: "2026-03-09",
     endDate: "2026-03-11",
     time: "11:00 - 15:00",
-    location: "Tiešsaistē",
+    location: "Tiešsaistē (MS Teams)",
     category: "training",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-3-1.png",
-    registrationUrl: "https://www.intereses.lv/aicinam-pieteikties-pedagogu-profesionalas-kompetences-pilnveides-seminaram-dramaturgijas-pamati/",
+    registrationUrl: "https://forms.office.com/Pages/ResponsePage.aspx?id=zQhK8ENaGEOcgp3Ru82TejvGZc4hkvFHlvXFNxrzeNhURVhXTzVVMEVVQTRNRjdNRlJPWENWRUZSWi4u",
+    organizer: "Rīgas Interešu izglītības metodiskais centrs",
+    contactName: "Antra Ņjuša",
+    contactEmail: "anjusa@edu.riga.lv",
     sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-pedagogu-profesionalas-kompetences-pilnveides-seminaram-dramaturgijas-pamati/",
     status: "open",
     spotsTotal: 30,
@@ -271,28 +366,64 @@ export const eventItems: EventItem[] = [
   {
     id: "7",
     title: "Skatuves runas konkursa \"Rīgas zvirbulis 2026\" I kārta",
-    description: "Rīgas skolēnu skatuves runas konkurss. Atbildīgā — Antra Ņjuša.",
+    description: "Rīgas skolēnu skatuves runas konkurss Bērnu un jauniešu centrā \"Rīgas Skolēnu pils\".",
+    fullContent: `Rīgas valstspilsētas pašvaldības izglītības iestāžu teātra mākslas jomas interešu izglītības programmu pedagogi aicināti sagatavot audzēkņus dalībai Skatuves runas konkursā **"Rīgas zvirbulis 2026"**, kas norisināsies 2026. gada martā un aprīlī Bērnu un jauniešu centrā "Rīgas Skolēnu pils".
+
+**Konkursa tēma:** dzīvība, brīvība, zināšanas, atbildība, tolerance, ģimene, tradīcijas.
+
+**Konkursa nosacījumi:**
+- Dalībnieks runā vienu prozas un vienu dzejas darbu. Vienu no darbiem var izpildīt latviešu valodas dialektā/izloksnē.
+- Katrs priekšnesums nevar pārsniegt trīs minūtes.
+
+**Mērķis:** Bērnu un jauniešu kultūras izpratnes un pašizpausmes mākslā lietpratības veicināšana.
+
+**Konkursa norises kārtas:**
+- I kārta no 2026. gada 4. marta līdz 6. martam – BJC "Rīgas Skolēnu pils", Krišjāņa Barona ielā 99;
+- II kārta 2026. gada 2. aprīlī.
+
+**Pieteikšanās:** Iestādes Konkursam var pieteikt ne vairāk kā 2 dalībniekus katrā vecuma grupā. Pieteikuma anketa aizpildāma līdz 2026. gada 19. februāra plkst. 15.00.`,
     date: "2026-03-04",
     endDate: "2026-03-06",
     time: "Pēc programmas",
     location: "BJC \"Rīgas Skolēnu pils\", Krišjāņa Barona iela 99",
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2026/01/Zvirbulis-2026.jpg",
-    registrationUrl: "https://www.intereses.lv/aicinam-gatavoties-dalibai-skatuves-runas-konkursa-rigas-zvirbulis-2026/",
+    registrationUrl: "https://forms.office.com/e/CCe6jJQ2h3",
+    registrationDeadline: "2026-02-19",
+    organizer: "Rīgas Interešu izglītības metodiskais centrs",
+    contactName: "Antra Ņjuša",
+    contactEmail: "anjusa@edu.riga.lv",
     sourceUrl: "https://www.intereses.lv/aicinam-gatavoties-dalibai-skatuves-runas-konkursa-rigas-zvirbulis-2026/",
     status: "open",
   },
   {
     id: "8",
     title: "Programma \"Stikla mākslas daudzveidība, apstrādes iespējas, tehnikas un paņēmieni darbu izveidē\"",
-    description: "1. nodarbība — praktiski darbi stikla mākslas tehnikās. Atbildīgās — Aivita Grīna un Līga Baņķiere.",
+    description: "Profesionālās pilnveides programma stikla mākslas tehnikās. Lektore – Ilze Apine.",
+    fullContent: `Rīgas Interešu izglītības metodiskais centrs aicina pieteikties interešu izglītības programmu pedagogus profesionālās pilnveides programmas **"Stikla mākslas daudzveidība, apstrādes iespējas, tehnikas un paņēmieni darbu izveidē"** (8 stundas) apguvei.
+
+**Lektore – Ilze Apine.**
+
+**Programma piedāvā:**
+
+Programma dod iespēju gūt zināšanas par stikla materiālu un tā specifiku, mākslinieciskās izteiksmes līdzekļiem, apstrādes iespējām, materiāliem un instrumentiem. Apgūt stikla apstrādes paņēmienus un tehnikas:
+- kausēšana, gravēšana, kodināšana;
+- dažādu materiālu (arī dažādu stiklu) apvienojums un sakausēšanas pamatprincipi;
+- pielietojums mācību nodarbībās un jaunradē stikla darbu izveidē.
+
+Nodarbību laikā tiks izgatavoti stikla dizaina priekšmeti – rotaslietas, dekori.
+
+**Norises laiks:** 2026. gada 23. un 30. marts, no plkst. 10.00 līdz 13.00.`,
     date: "2026-03-23",
     endDate: "2026-03-30",
     time: "10:00 - 13:00",
     location: "Rīgas bērnu un jauniešu centrs \"Laimīte\", Baltāsbaznīcas iela 14",
     category: "training",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-7.png",
-    registrationUrl: "https://www.intereses.lv/aicinam-pieteikties-programmai-stikla-makslas-daudzveidiba-apstrades-iespejas-tehnikas-un-panemieni-darbu-izveide/",
+    registrationUrl: "https://forms.office.com/e/",
+    organizer: "Rīgas Interešu izglītības metodiskais centrs",
+    contactName: "Aivita Grīna",
+    contactEmail: "agrina5@edu.riga.lv",
     sourceUrl: "https://www.intereses.lv/aicinam-pieteikties-programmai-stikla-makslas-daudzveidiba-apstrades-iespejas-tehnikas-un-panemieni-darbu-izveide/",
     status: "open",
     spotsTotal: 20,
@@ -301,38 +432,67 @@ export const eventItems: EventItem[] = [
   {
     id: "9",
     title: "Rīgas bērnu un jauniešu radošais mākslas konkurss \"Neparastās lietas. Ainava\" — izstāde",
-    description: "Konkursa darbu izstāde RTU Arhitektūras un dizaina institūtā.",
+    description: "Konkursa darbu izstāde RTU Arhitektūras un dizaina institūtā. Darbi veidoti tikai no otrreizējās aprites materiāliem.",
+    fullContent: `Rīgas Bolderājas Jaunā pamatskola sadarbībā ar Rīgas valstspilsētas pašvaldības Izglītības, kultūras un sporta departamenta Sporta un jaunatnes pārvaldi aicina Rīgas izglītības iestāžu audzēkņus piedalīties radošajā mākslas konkursā **"Neparastās lietas. Ainava"**.
+
+Konkurss rosina skolēnus iepazīt Latvijas ainavistu darbus, iedziļināties to noskaņās un kompozīcijās, kā arī radīt savas oriģinālas interpretācijas, izmantojot tikai **otrreizējās aprites materiālus** – kartonu, papīru, tekstilu, plastmasu, koka un metāla atlikumus un citus pieejamos resursus.
+
+Tā ir iespēja attīstīt radošumu, domāt ilgtspējīgi, eksperimentēt ar faktūrām un krāsām, kā arī paraudzīties uz Latvijas ainavu no jauna skatapunkta.
+
+**Darbu iesniegšana:** Konkursa darbi jāiesniedz **2026. gada 19. martā no pl. 10:00 – 18:00** RTU Arhitektūras un dizaina institūtā – pārejā no Ķīpsalas ielas 6 uz Ķīpsalas ielu 6a, Rīgā.
+
+Veiksmīgākie darbi tiks eksponēti kopīgā izstādē.
+
+**Aicinām skolēnus domāt ārpus ierastajiem rāmjiem un veidot neparastus darbus.**
+
+*Informāciju sagatavoja: Dace Timule, Rīgas Bolderājas Jaunās pamatskolas izglītības metodiķe.*`,
     date: "2026-03-19",
     endDate: "2026-04-24",
     time: "Darba dienās 9:00 - 17:00",
     location: "RTU Arhitektūras un dizaina institūts, Ķīpsalas iela 6, Rīga",
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/IMG_0092-725x400.jpeg",
-    registrationUrl: "https://www.intereses.lv/rigas-bernu-un-jauniesu-radosas-makslas-konkurss-neparastas-lietas-ainava/",
+    organizer: "Rīgas Bolderājas Jaunā pamatskola",
+    contactName: "Dace Timule",
     sourceUrl: "https://www.intereses.lv/rigas-bernu-un-jauniesu-radosas-makslas-konkurss-neparastas-lietas-ainava/",
     status: "open",
   },
   {
     id: "10",
     title: "Vokālo ansambļu dziedāšanas svētki \"Sadziedam!\"",
-    description: "Pamatskolas un vidusskolas vecuma vokālo ansambļu dziedāšanas svētki. Atbildīgā — Arta Grīna.",
+    description: "Pamatskolas un vidusskolas vecuma vokālo ansambļu dziedāšanas svētki Rīgas kultūras centrā \"Mazā Ģilde\".",
+    fullContent: `Rīgas vokālo ansambļu dziedāšanas svētki "Sadziedam!" pulcēs pamatskolas un vidusskolas vecuma vokālos ansambļus kopīgā muzicēšanas vakarā Rīgas Kultūras un tautas mākslas centrā "Mazā Ģilde".
+
+Pasākums notiks **2026. gada 5. maijā** plkst. 18:00.
+
+**Atbildīgā:** Arta Grīna`,
     date: "2026-05-05",
     time: "18:00",
     location: "Rīgas Kultūras un tautas mākslas centrs \"Mazā Ģilde\", Amatu iela 5",
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2025/12/Balsis-2026-1.png",
+    organizer: "Rīgas Interešu izglītības metodiskais centrs",
+    contactName: "Arta Grīna",
+    contactEmail: "agrina@edu.riga.lv",
     status: "upcoming",
   },
   {
     id: "11",
     title: "Mūsdienu deju video konkursa laureātu koncerts",
-    description: "Rīgas valstspilsētas pašvaldības mūsdienu deju video konkursa laureātu noslēguma koncerts. Atbildīgā — Ivetta Tamane.",
+    description: "Rīgas valstspilsētas pašvaldības mūsdienu deju video konkursa laureātu noslēguma koncerts.",
+    fullContent: `Rīgas valstspilsētas pašvaldības mūsdienu deju video konkursa laureātu noslēguma koncerts notiks **2026. gada 17. maijā** plkst. 15:00 Kultūras pilī "Ziemeļblāzma".
+
+Koncertā uzstāsies konkursa laureāti un labāko darbu autori mūsdienu deju jomā.
+
+**Atbildīgā:** Ivetta Tamane`,
     date: "2026-05-17",
     time: "15:00",
     location: "Kultūras pils \"Ziemeļblāzma\", Ziemeļblāzmas iela 36",
     category: "competitions",
     image: "https://www.intereses.lv/wp-content/uploads/2026/02/FB-un-Instagram-posti-5.png",
-    registrationUrl: "https://www.intereses.lv/musdienu-dejas-video-konkurss/",
+    organizer: "Rīgas Interešu izglītības metodiskais centrs",
+    contactName: "Ivetta Tamane",
+    contactEmail: "itamane@edu.riga.lv",
     sourceUrl: "https://www.intereses.lv/musdienu-dejas-video-konkurss/",
     status: "upcoming",
   },
