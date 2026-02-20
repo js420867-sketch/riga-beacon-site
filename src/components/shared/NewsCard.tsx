@@ -69,7 +69,16 @@ export function NewsCard({ news, featured = false }: NewsCardProps) {
 
   return (
     <Link to={`/jaunumi/${news.id}`} className="block group">
-      <Card className="card-interactive h-full border-border/50">
+      <Card className="card-interactive h-full border-border/50 overflow-hidden">
+        {news.image && (
+          <div className="aspect-[16/9] overflow-hidden bg-muted">
+            <img
+              src={news.image}
+              alt={news.title}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+        )}
         <CardHeader className="pb-3">
           <div className="flex items-center justify-between gap-2 mb-2">
             <Badge variant="secondary" className="chip-secondary text-xs">
@@ -84,7 +93,7 @@ export function NewsCard({ news, featured = false }: NewsCardProps) {
             {news.title}
           </h3>
         </CardHeader>
-        <CardContent className="pt-0 flex flex-col h-[calc(100%-6rem)]">
+        <CardContent className="pt-0 flex flex-col">
           <p className="text-sm text-muted-foreground line-clamp-2">{news.excerpt}</p>
           <div className="mt-auto">
             <AuthorBadge name={news.author} role={news.authorRole} />
