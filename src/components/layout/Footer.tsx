@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { t } from "@/lib/i18n";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,14 +12,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* About Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-                RIMC
-              </div>
-              <span className="font-bold">Rīgas IIMC</span>
-            </div>
+            <Link to="/" className="inline-block mb-4 hover:opacity-80 transition-opacity">
+              <img
+                src={logo}
+                alt="Rīgas Interešu izglītības metodiskais centrs"
+                className="h-12 w-auto object-contain brightness-0 invert"
+              />
+            </Link>
             <p className="text-background/70 text-sm leading-relaxed">
-              Rīgas Interešu izglītības metodiskais centrs - atbalsts pedagogiem, 
+              Rīgas Interešu izglītības metodiskais centrs — atbalsts pedagogiem, 
               skolēniem un vecākiem interešu izglītības jomā.
             </p>
           </div>
@@ -38,13 +40,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/resursi" className="text-background/70 hover:text-background transition-colors text-sm">
-                  {t.nav.resources}
+                <Link to="/talakizglitiba" className="text-background/70 hover:text-background transition-colors text-sm">
+                  {t.nav.training}
                 </Link>
               </li>
               <li>
-                <Link to="/par-mums" className="text-background/70 hover:text-background transition-colors text-sm">
-                  {t.nav.about}
+                <Link to="/materiali" className="text-background/70 hover:text-background transition-colors text-sm">
+                  {t.nav.materials}
+                </Link>
+              </li>
+              <li>
+                <Link to="/kontakti" className="text-background/70 hover:text-background transition-colors text-sm">
+                  {t.nav.contact}
                 </Link>
               </li>
             </ul>
