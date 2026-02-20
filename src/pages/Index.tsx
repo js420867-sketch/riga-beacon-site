@@ -65,7 +65,7 @@ export default function Index() {
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
                 <Link to="/kontakti">{t.home.hero.cta}</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/60 text-white hover:bg-white/15 backdrop-blur-sm" asChild>
+              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg">
                 <Link to="/pasakumi">{t.home.hero.ctaSecondary}</Link>
               </Button>
             </div>
@@ -77,7 +77,7 @@ export default function Index() {
               <Link
                 key={event.id}
                 to={`/pasakumi/${event.id}`}
-                className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 hover:bg-white/20 transition-all animate-slide-up"
+                className="group bg-white/10 backdrop-blur-md border border-white/25 rounded-xl p-4 hover:bg-white/20 transition-all animate-slide-up shadow-[0_4px_24px_rgba(0,0,0,0.35)] hover:shadow-[0_6px_32px_rgba(0,0,0,0.5)]"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <div className="flex items-start gap-3">
