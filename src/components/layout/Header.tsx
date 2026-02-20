@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 const navItems = [
   { href: "/", label: t.nav.home },
@@ -29,15 +30,16 @@ export function Header() {
       <div className="container-page">
         <nav className="flex items-center justify-between h-16 md:h-20" aria-label="Galvenā navigācija">
           {/* Logo */}
-          <Link 
-            to="/" 
-            className="flex items-center gap-3 text-primary font-bold text-lg md:text-xl hover:opacity-90 transition-opacity"
+          <Link
+            to="/"
+            className="flex items-center hover:opacity-85 transition-opacity"
             aria-label="RIMC - Sākumlapa"
           >
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg hero-gradient flex items-center justify-center text-primary-foreground font-bold text-sm md:text-base">
-              RIMC
-            </div>
-            <span className="hidden sm:block">Rīgas IIMC</span>
+            <img
+              src={logo}
+              alt="Rīgas Interešu izglītības metodiskais centrs"
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -60,7 +62,6 @@ export function Header() {
 
           {/* Search and Mobile Menu */}
           <div className="flex items-center gap-2">
-            {/* Search Toggle */}
             <Button
               variant="ghost"
               size="icon"
@@ -71,7 +72,6 @@ export function Header() {
               <Search className="h-5 w-5" />
             </Button>
 
-            {/* Mobile Menu Toggle */}
             <Button
               variant="ghost"
               size="icon"
