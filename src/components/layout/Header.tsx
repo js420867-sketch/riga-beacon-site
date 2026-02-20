@@ -10,8 +10,8 @@ const navItems = [
   { href: "/", label: t.nav.home },
   { href: "/jaunumi", label: t.nav.news },
   { href: "/pasakumi", label: t.nav.events },
-  { href: "/par-mums", label: t.nav.about },
-  { href: "/resursi", label: t.nav.resources },
+  { href: "/talakizglitiba", label: t.nav.training },
+  { href: "/materiali", label: t.nav.materials },
   { href: "/kontakti", label: t.nav.contact },
 ];
 

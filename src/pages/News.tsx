@@ -6,22 +6,32 @@ import { SearchInput } from "@/components/shared/SearchInput";
 import { Pagination } from "@/components/shared/Pagination";
 import { newsItems, newsCategories } from "@/data/mockData";
 import { t } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 const ITEMS_PER_PAGE = 6;
+
+const sectionTabs = [
+  { id: "all", label: t.news.all },
+  { id: "methodical", label: t.news.methodical },
+  { id: "general", label: t.news.general },
+];
 
 export default function News() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
+  const [activeSection, setActiveSection] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
 
   const filteredNews = useMemo(() => {
     return newsItems.filter((news) => {
       const matchesCategory = activeCategory === "all" || news.category === activeCategory;
-      const matchesSearch = news.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      const matchesSection = activeSection === "all" || news.newsType === activeSection;
+      const matchesSearch =
+        news.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         news.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
+      return matchesCategory && matchesSection && matchesSearch;
     });
-  }, [searchQuery, activeCategory]);
+  }, [searchQuery, activeCategory, activeSection]);
 
   const totalPages = Math.ceil(filteredNews.length / ITEMS_PER_PAGE);
   const paginatedNews = filteredNews.slice(
@@ -39,6 +49,11 @@ export default function News() {
     setCurrentPage(1);
   };
 
+  const handleSectionChange = (section: string) => {
+    setActiveSection(section);
+    setCurrentPage(1);
+  };
+
   return (
     <Layout>
       <section className="section-padding">
@@ -47,6 +62,24 @@ export default function News() {
           <div className="page-header">
             <h1 className="page-title">{t.news.title}</h1>
             <p className="page-description">{t.news.description}</p>
+          </div>
+
+          {/* Section Tabs */}
+          <div className="flex gap-1 mb-6 border-b border-border">
+            {sectionTabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => handleSectionChange(tab.id)}
+                className={cn(
+                  "px-4 py-2.5 text-sm font-medium transition-colors border-b-2 -mb-px",
+                  activeSection === tab.id
+                    ? "border-primary text-primary"
+                    : "border-transparent text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
 
           {/* Filters */}
@@ -72,9 +105,9 @@ export default function News() {
             <>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                 {paginatedNews.map((news, index) => (
-                  <div 
-                    key={news.id} 
-                    className="animate-slide-up" 
+                  <div
+                    key={news.id}
+                    className="animate-slide-up"
                     style={{ animationDelay: `${index * 0.05}s` }}
                   >
                     <NewsCard news={news} />

@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { t } from "@/lib/i18n";
+import { teamMembers } from "@/data/mockData";
 
 const contactInfo = [
   {
@@ -48,15 +49,11 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
-
     toast({
       title: "Ziņojums nosūtīts!",
       description: t.contact.form.success,
     });
-
     setFormData({ name: "", email: "", subject: "", message: "" });
     setIsSubmitting(false);
   };
@@ -67,11 +64,53 @@ export default function Contact() {
 
   return (
     <Layout>
+      {/* About intro */}
+      <section className="py-12 bg-muted/20 border-b border-border">
+        <div className="container-page max-w-4xl">
+          <h1 className="text-3xl md:text-4xl font-bold mb-3">{t.contact.aboutTitle}</h1>
+          <p className="text-lg text-muted-foreground leading-relaxed">{t.contact.aboutDescription}</p>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="py-12 border-b border-border">
+        <div className="container-page">
+          <h2 className="text-2xl font-bold mb-6">{t.contact.team}</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {teamMembers.map((member) => {
+              const initials = member.name.split(" ").map(n => n[0]).join("").slice(0, 2).toUpperCase();
+              return (
+                <Card key={member.id} className="border-border/50">
+                  <CardContent className="p-5">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg mb-3">
+                      {initials}
+                    </div>
+                    <p className="font-semibold">{member.name}</p>
+                    <p className="text-sm text-primary mb-2">{member.role}</p>
+                    <p className="text-xs text-muted-foreground mb-3 leading-relaxed">{member.description}</p>
+                    <div className="space-y-1">
+                      <a href={`mailto:${member.email}`} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
+                        <Mail className="h-3 w-3" />
+                        {member.email}
+                      </a>
+                      <a href={`tel:${member.phone}`} className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
+                        <Phone className="h-3 w-3" />
+                        {member.phone}
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact form & info */}
       <section className="section-padding">
         <div className="container-page">
-          {/* Header */}
-          <div className="page-header text-center max-w-2xl mx-auto">
-            <h1 className="page-title">{t.contact.title}</h1>
+          <div className="page-header">
+            <h2 className="page-title">{t.contact.title}</h2>
             <p className="page-description">{t.contact.description}</p>
           </div>
 
@@ -108,7 +147,6 @@ export default function Contact() {
                       />
                     </div>
                   </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="subject">{t.contact.form.subject} *</Label>
                     <Input
@@ -120,7 +158,6 @@ export default function Contact() {
                       aria-required="true"
                     />
                   </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="message">{t.contact.form.message} *</Label>
                     <Textarea
@@ -133,7 +170,6 @@ export default function Contact() {
                       aria-required="true"
                     />
                   </div>
-
                   <Button type="submit" size="lg" disabled={isSubmitting} className="w-full sm:w-auto">
                     {isSubmitting ? (
                       t.common.loading
@@ -150,7 +186,6 @@ export default function Contact() {
 
             {/* Contact Info */}
             <div className="space-y-6 animate-slide-up stagger-2">
-              {/* Info Cards */}
               <div className="grid sm:grid-cols-2 gap-4">
                 {contactInfo.map((info, index) => (
                   <Card key={index} className="border-border/50">
@@ -177,8 +212,6 @@ export default function Contact() {
                   </Card>
                 ))}
               </div>
-
-              {/* Map Placeholder */}
               <Card className="border-border/50 overflow-hidden">
                 <div className="aspect-[4/3] bg-muted flex items-center justify-center">
                   <div className="text-center p-6">

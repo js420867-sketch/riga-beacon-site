@@ -1,22 +1,30 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Users, BookOpen, Calendar, Award } from "lucide-react";
+import { ArrowRight, GraduationCap, Calendar, BookOpen, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Layout } from "@/components/layout/Layout";
 import { NewsCard } from "@/components/shared/NewsCard";
 import { EventCard } from "@/components/shared/EventCard";
-import { newsItems, eventItems } from "@/data/mockData";
+import { newsItems, eventItems, quickLinks } from "@/data/mockData";
 import { t } from "@/lib/i18n";
 
+const iconMap: Record<string, React.ElementType> = {
+  GraduationCap,
+  Calendar,
+  BookOpen,
+  Award,
+};
+
 const stats = [
-  { icon: Users, value: "5000+", label: "Skolēni" },
-  { icon: BookOpen, value: "120+", label: "Programmas" },
-  { icon: Calendar, value: "50+", label: "Pasākumi gadā" },
-  { icon: Award, value: "25+", label: "Gadi pieredzes" },
+  { value: "5000+", label: "Skolēni" },
+  { value: "120+", label: "Programmas" },
+  { value: "50+", label: "Pasākumi gadā" },
+  { value: "25+", label: "Gadi pieredzes" },
 ];
 
 export default function Index() {
-  const latestNews = newsItems.slice(0, 4);
+  const methodicalNews = newsItems.filter(n => n.newsType === "methodical").slice(0, 3);
+  const generalNews = newsItems.filter(n => n.newsType === "general").slice(0, 3);
   const upcomingEvents = eventItems.slice(0, 3);
 
   return (
@@ -33,7 +41,7 @@ export default function Index() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/par-mums">{t.home.hero.cta}</Link>
+                <Link to="/kontakti">{t.home.hero.cta}</Link>
               </Button>
               <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
                 <Link to="/pasakumi">{t.home.hero.ctaSecondary}</Link>
@@ -43,40 +51,69 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Quick Links Section */}
+      <section className="py-10 bg-muted/30">
+        <div className="container-page">
+          <h2 className="text-lg font-semibold text-muted-foreground mb-5">{t.home.quickLinks.title}</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {quickLinks.map((link, index) => {
+              const Icon = iconMap[link.icon] || BookOpen;
+              return (
+                <Link
+                  key={link.id}
+                  to={link.href}
+                  className="group animate-slide-up"
+                  style={{ animationDelay: `${index * 0.08}s` }}
+                >
+                  <Card className="card-interactive h-full border-border/50 hover:border-primary/30">
+                    <CardContent className="p-5 flex flex-col items-start gap-3">
+                      <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <Icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm group-hover:text-primary transition-colors leading-snug">{link.title}</p>
+                        <p className="text-xs text-muted-foreground mt-1 leading-snug">{link.description}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-10">
         <div className="container-page">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <Card key={index} className="border-0 shadow-sm text-center animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-6">
-                  <stat.icon className="h-8 w-8 mx-auto mb-3 text-primary" />
-                  <div className="text-2xl md:text-3xl font-bold text-foreground mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </CardContent>
-              </Card>
+              <div key={index} className="text-center animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Latest News Section */}
-      <section className="section-padding">
+      {/* Methodical News Section */}
+      <section className="section-padding bg-muted/20">
         <div className="container-page">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold">{t.home.sections.latestNews}</h2>
-            <Button variant="ghost" asChild className="group">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold">{t.home.sections.latestNews}</h2>
+              <p className="text-muted-foreground mt-1 text-sm">Aktualitātes pedagogiem un metodiķiem</p>
+            </div>
+            <Button variant="ghost" asChild className="group shrink-0">
               <Link to="/jaunumi">
                 {t.home.sections.viewAll}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {latestNews.map((news, index) => (
+          <div className="grid md:grid-cols-3 gap-6">
+            {methodicalNews.map((news, index) => (
               <div key={news.id} className="animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
                 <NewsCard news={news} featured={index === 0} />
               </div>
@@ -85,19 +122,43 @@ export default function Index() {
         </div>
       </section>
 
+      {/* General News Section */}
+      <section className="section-padding">
+        <div className="container-page">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold">{t.home.sections.generalNews}</h2>
+              <p className="text-muted-foreground mt-1 text-sm">Konkursi, pasākumi un projekti skolēniem</p>
+            </div>
+            <Button variant="ghost" asChild className="group shrink-0">
+              <Link to="/jaunumi">
+                {t.home.sections.viewAll}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {generalNews.map((news, index) => (
+              <div key={news.id} className="animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <NewsCard news={news} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Upcoming Events Section */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding bg-muted/20">
         <div className="container-page">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl md:text-3xl font-bold">{t.home.sections.upcomingEvents}</h2>
-            <Button variant="ghost" asChild className="group">
+            <Button variant="ghost" asChild className="group shrink-0">
               <Link to="/pasakumi">
                 {t.home.sections.viewAll}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </div>
-
           <div className="space-y-4">
             {upcomingEvents.map((event, index) => (
               <div key={event.id} className="animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
